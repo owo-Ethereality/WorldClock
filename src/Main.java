@@ -3,33 +3,36 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        BjClock bj = new BjClock();
-        LdClock ld = new LdClock();
-        McClock mc = new McClock();
-        NyClock ny = new NyClock();
-        SnClock sn = new SnClock();
+
+        Calendar cal = Calendar.getInstance();
+        Scanner in = new Scanner(System.in);
+        String op;
+
+        Clock bjClock = new Clock("BeijingClock",cal,0);
+        Clock ldClock = new Clock("LondonClock",cal,8);
+        Clock mcClock = new Clock("MoscowClock",cal,4);
+        Clock snClock = new Clock("SydneyClock",cal,-2);
+        Clock nyClock = new Clock("NewYorkClock",cal,13);
+
         while(true) {
-            Calendar cal = Calendar.getInstance();
-            bj.setTime(cal);
-            ld.setTime(cal);
-            mc.setTime(cal);
-            ny.setTime(cal);
-            sn.setTime(cal);
-            System.out.print("\n\n\n\n\nBeijingClock:");
-            bj.print();
-            System.out.print("LondonClock:");
-            ld.print();
-            System.out.print("MexicoClock:");
-            mc.print();
-            System.out.print("NewYorkClock:");
-            ny.print();
-            System.out.print("SydneyClock:");
-            sn.print();
-            try{
-                Thread.sleep(700);
-            }
-            catch(Exception e){
-                e.printStackTrace();
+            op = in.nextLine();
+            if(op.equals("quit"))break;
+            if(op.equals("set")) {
+                System.out.println("请输入年月日时分秒，回车分隔");
+                int year = Integer.parseInt(in.nextLine());
+                int month = Integer.parseInt(in.nextLine());
+                int day = Integer.parseInt(in.nextLine());
+                int hour = Integer.parseInt(in.nextLine());
+                int minute = Integer.parseInt(in.nextLine());
+                int second = Integer.parseInt(in.nextLine());
+                Calendar now = Calendar.getInstance();
+                long cover = now.getTimeInMillis() - cal.getTimeInMillis();
+                cal = now;
+                bjClock.setTime(cover,year,month,day,hour,minute,second);
+                ldClock.setTime(cover,year,month,day,hour,minute,second);
+                mcClock.setTime(cover,year,month,day,hour,minute,second);
+                snClock.setTime(cover,year,month,day,hour,minute,second);
+                nyClock.setTime(cover,year,month,day,hour,minute,second);
             }
         }
     }
