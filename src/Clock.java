@@ -46,7 +46,18 @@ public class Clock {
         hour = time.get(Calendar.HOUR_OF_DAY);
         minute = time.get(Calendar.MINUTE);
         second = time.get(Calendar.SECOND);
-        System.out.println(year + "-" + month + "-" + day + "     " + hour + ":" + minute + ":" + second);
+
+        System.out.print(year + "-");
+        if(month < 10)System.out.print("0");
+        System.out.print(month + "-");
+        if(day < 10)System.out.print("0");
+        System.out.print(day + "     ");
+        if(hour < 10)System.out.print("0");
+        System.out.print(hour + ":");
+        if(minute < 10)System.out.print("0");
+        System.out.print(minute + ":");
+        if(second < 10)System.out.print("0");
+        System.out.println(second);
     }
 
 }
