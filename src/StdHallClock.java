@@ -22,13 +22,13 @@ public class StdHallClock extends Clock {
         minute = cal.get(Calendar.MINUTE);
         second = cal.get(Calendar.SECOND);
     }
-    void checkTime(BjClock bj,LdClock ld,McClock mc,NyClock ny,SnClock cn) {
+    void checkTime(BjClock bj,LdClock ld,McClock mc,NyClock ny,SnClock sn) {
         Calendar cal = Calendar.getInstance();
         setTime(cal);
         bj.setTime(cal);
         ld.setTime(cal);
         mc.setTime(cal);
         ny.setTime(cal);
-        cn.setTime(cal);
+        sn.setTime(cal);
     }
 }

@@ -18,4 +18,8 @@ public class Clock {
         minute = cal.get(Calendar.MINUTE);
         second = cal.get(Calendar.SECOND);
     }
+
+    void print() {
+        System.out.println(year + "-" + month + "-" + day + "-" + hour + ":" + minute + ":" + second);
+    }
 }
